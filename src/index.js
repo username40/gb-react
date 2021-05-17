@@ -1,31 +1,33 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import MessageBtn from "./components/MessageBtn/MessageBtn"
-import MessageField from './components/MessageField/Messagefield'
 
-const messages = [
-  "test1",
-   'уже не первое реакт сообщение',
-    'черт возьми не понятно почему список не перерисовывается',
-     'vue лучше!',
-    'короче всяко вертел ничего не выходит',
-  ]
+const messages = ["test1"]
 
 const updateData = () => {
-  console.log();
-  
   messages.push('норм!')
+  render()
 }
 
-const app = (
-  <div>
-    <MessageField messages={messages} />
-    <MessageBtn onClick={updateData}/>
-  </div>
+const Message = ({message}) => (
+<React.Fragment>
+  <h1>{message}</h1>
+</React.Fragment>
 )
 
+const MessageField = ({messages}) => (
+  <>
+  <button onClick={updateData}>send!</button>
+  {messages.map((message, index) => (
+    <Message message={message} key={index}/>
+  ))}
+  </>
+)
 
+const render = () => {
   ReactDOM.render(
-    app,
+    <MessageField messages={messages} />,
     document.getElementById("root"),
   )
+}
+
+render()
