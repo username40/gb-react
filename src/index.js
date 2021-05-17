@@ -1,31 +1,25 @@
 import React from "react"
 import ReactDOM from "react-dom"
+import MessageField from './components/MessageField/Messagefield'
 
-const messages = ["test1"]
+const messages = [{author: 'me', text: 'hello'}]
 
 const updateData = () => {
-  messages.push('норм!')
+  messages.push({author:'Я', text: 'норм'})
   render()
 }
 
-const Message = ({message}) => (
-<React.Fragment>
-  <h1>{message}</h1>
-</React.Fragment>
-)
-
-const MessageField = ({messages}) => (
+const app = () => (
   <>
-  <button onClick={updateData}>send!</button>
-  {messages.map((message, index) => (
-    <Message message={message} key={index}/>
-  ))}
+    <button onClick={updateData}>send</button>
+    <MessageField messages={messages} counter={messages.length}/>
   </>
 )
 
+
 const render = () => {
   ReactDOM.render(
-    <MessageField messages={messages} />,
+    app(),
     document.getElementById("root"),
   )
 }
