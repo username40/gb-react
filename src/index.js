@@ -1,19 +1,9 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import MessageField from './components/MessageField/Messagefield'
-
-const messages = [{author: 'me', text: 'hello'}]
-
-const updateData = () => {
-  messages.push({author:'Я', text: 'норм'})
-  render()
-}
+import Layout from './components/Layout/Layout'
 
 const app = () => (
-  <>
-    <button onClick={updateData}>send</button>
-    <MessageField messages={messages} counter={messages.length}/>
-  </>
+  <Layout/>
 )
 
 

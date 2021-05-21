@@ -1,0 +1,15 @@
+.icon {
+    color: #2b5278;
+    cursor: pointer;
+  }
+
+.messageField__container {
+    height: calc(100vh - 80px);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.fg1 {
+    flex-grow: 1;
+}
